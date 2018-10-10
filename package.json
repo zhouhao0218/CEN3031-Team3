@@ -1,0 +1,19 @@
+{
+	"name": "GamerGator",
+	"version": "1.0.0",
+	"description": "cen3031 team 3 project",
+	"main": "server.js",
+	"author": "team3",
+	"license": "Apache 2.0",
+	"dependencies": {
+		"body-parser": "^1.14.1",
+		"express": "^4.13.3",
+		"mongoose": "^4.2.9",
+		"morgan": "^1.6.1",
+		"request": "^2.67.0"
+	},
+	"devDependencies": {
+		"should": "^7.1.1",
+		"supertest": "^1.1.0"
+	}
+}

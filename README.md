@@ -1,1 +1,3 @@
-# CEN3031-Team3
+npm update
+
+node server
