@@ -40,11 +40,11 @@ exports.update = function (req, res) {
 	if (req.body.name) {
 		listing.name = req.body.name;
 	}
-	if (req.body.code) {
-		listing.code = req.body.code;
+	if (req.body.platform) {
+		listing.platform.platform;
 	}
-	if (req.body.address) {
-		listing.address = req.body.address;
+	if (req.body.description){
+		listing.description = req.body.description;
 	}
 	listing.save(function(err, what) {
 		if (err) {
@@ -69,7 +69,7 @@ exports.delete = function (req, res) {
 
 /* Retreive all the directory listings, sorted alphabetically by listing code */
 exports.list = function (req, res) {
-	Listing.find({}).sort('code').exec(function(err, items) {
+	Listing.find({}).sort('name').exec(function(err, items) {
 		res.json(items);
 	});
 };
