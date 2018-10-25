@@ -1,0 +1,160 @@
+{
+	"entries": [
+		{
+			"name": "CS GO",
+			"category": "FPS",
+			"platform": "PC",
+			"Description": "Counter-Strike: Global Offensive (CS:GO) expands upon the team-based first person shooter gameplay the original Counter-Strike pioneered when it launched in 1999. Two teams compete in multiple rounds of objective-based game modes with the goal of winning enough rounds to win the match."
+		},
+		{
+			"name": "Overwatch",
+			"category": "FPS",
+			"platform": "PC/ Xbox One/ PS4",
+			"Description": "Overwatch assigns players into two teams of six, with each player selecting from a roster of over 20 characters, known as heroes, each with a unique style of play whose roles are divided into three general categories that fit their role. Players on a team work together to secure and defend control points on a map or escort a payload across the map in a limited amount of time."
+		},
+		{
+			"name": "Tom Clancy’s Rainbow Six Siege",
+			"category": "FPS",
+			"platform": "PC/ Xbox One/ PS4",
+			"Description": "Tom Clancy's Rainbow Six Siege is a tactical shooter video game developed by Ubisoft Montreal and published by Ubisoft. The game puts heavy emphasis on environmental destruction and cooperation between players. Each player assumes control of an attacker or a defender in different gameplay modes such as rescuing a hostage and defusing a bomb."
+		},
+		{
+			"name": "PlayerUnknown's Battlegrounds",
+			"category": "FPS",
+			"platform": "PC/Xbox One",
+			"Description": "PlayerUnknown's Battlegrounds (PUBG) is an online multiplayer battle royale game developed and published by PUBG Corporation, a subsidiary of South Korean video game company Bluehole. In the game, up to one hundred players parachute onto an island and scavenge for weapons and equipment to kill others while avoiding getting killed themselves. The available safe area of the game's map decreases in size over time, directing surviving players into tighter areas to force encounters. The last player or team standing wins the round."
+		},
+		{
+			"name": "Splatoon 2",
+			"category": "FPS",
+			"platform": "Nintendo Switch",
+			"Description": "Splatoon 2 is a team-based third-person shooter video game developed and published by Nintendo for the Nintendo Switch. It is a sequel to Splatoon, and includes a story-driven single-player mode and an online multiplayer mode that features up to eight players in online four-versus-four matches."
+		},
+		{
+			"name": "Call of Duty",
+			"category": "FPS",
+			"platform": "PC/ Xbox One/ PS4",
+			"Description": "Call of Duty is a first-person shooter video game franchise. The series began on Microsoft Windows, and expanded to consoles and handhelds. Several spin-off games have been released. The earlier games in the series are set primarily in World War II, but later games like Call of Duty 4: Modern Warfare are set in modern times or in futuristic settings. The most recent game, Call of Duty: Black Ops 4, was released on October 12, 2018."
+		},
+		{
+			"name": "Battlefield",
+			"category": "FPS",
+			"platform": "PC/ Xbox One/ PS4",
+			"Description": "Battlefield is a series of first-person shooter video games that started out on Microsoft Windows and OS X with Battlefield 1942, which was released in 2002. The series is developed by Swedish company EA DICE and is published by American company Electronic Arts. The series features a particular focus on large maps, teamwork and vehicle warfare. The PC games in the series are mainly focused on online multiplayer. The Battlefield series has been played by more than 50 million players worldwide as of 2012, across 11 games and 12 expansion packs released since its inception in 2002."
+		},
+		{
+			"name": "Project M",
+			"category": "Fighting",
+			"platform": "Wii",
+			"Description": "Project M is a video game modification (mod) of the 2008 fighting game Super Smash Bros. Brawl for the Wii, created by the community group known as the Project M Development Team (PMDT; previously known as the Project M Back Room). It is designed to retool Brawl to play more like its two predecessors, Super Smash Bros. (1999) and Super Smash Bros. Melee (2001), in response to fan objections to Brawl's physics, slower-paced gameplay, larger use of chance elements, and mechanics of certain attacks."
+		},
+		{
+			"name": "Rivals of Aether",
+			"category": "Fighting",
+			"platform": "PC/Xbox One",
+			"Description": "Rivals of Aether is a fighting game created by Dan Fornace. It was released for Microsoft Windows in March 2017 and Xbox One in August 2017. It received positive reception from critics, who commended its deep gameplay."
+		},
+		{
+			"name": "DragonBall FighterZ",
+			"category": "Fighting",
+			"platform": "PC/ Xbox One/ PS4/ Nintendo Switch",
+			"Description": "Dragon Ball FighterZ is a 2.5D fighting game developed by Arc System Works and published by Bandai Namco Entertainment. Based on the Dragon Ball franchise, it was released for the PlayStation 4, Xbox One, and Microsoft Windows in most regions in January 2018, and in Japan the following month, and was released worldwide for the Nintendo Switch in September 2018."
+		},
+		{
+			"name": "Tekken 7",
+			"category": "Fighting",
+			"platform": "Arcade/PC/ Xbox One/ PS4",
+			"Description": "Tekken 7 is a fighting game developed and published by Bandai Namco Entertainment. The game is the ninth installment in the Tekken series, and the first to make use of the Unreal Engine. Tekken 7 had a limited arcade release in Japan in March 2015. An updated arcade version, Tekken 7: Fated Retribution, was released in Japan in July 2016, and features expanded content including new stages, costumes, items and characters. The same version was released for Microsoft Windows, PlayStation 4 and Xbox One in June 2017."
+		},
+		{
+			"name": "Street Fighter V",
+			"category": "Fighting",
+			"platform": "Arcade/PC/PS4",
+			"Description": "Street Fighter V is a fighting video game developed by Capcom and Dimps. The game was released in February 2016 for the PlayStation 4 and Microsoft Windows. The game features cross-platform play between the PlayStation 4 and Windows versions."
+		},
+		{
+			"name": "Super Smash Bros.",
+			"category": "Fighting",
+			"platform": "Wii U/Nintendo 3DS",
+			"Description": "Super Smash Bros. (retroactively known as Super Smash Bros. 64) is a fighting video game developed by HAL Laboratory and published by Nintendo for the Nintendo 64 home video game console. It was released in Japan on January 21, 1999; in North America on April 26, 1999; and in Europe on November 19, 1999. Super Smash Bros. is the first game in the Super Smash Bros. series."
+		},
+		{
+			"name": "League of Legends",
+			"category": "MOBA",
+			"platform": "PC",
+			"Description": "League of Legends (abbreviated LoL) is a multiplayer online battle arena video game developed and published by Riot Games for Microsoft Windows and macOS. In League of Legends, players assume the role of an unseen summoner that controls a champion with unique abilities and battle against a team of other players or computer-controlled champions. The goal is usually to destroy the opposing team's nexus, a structure which lies at the heart of a base protected by defensive structures, although other distinct game modes exist as well."
+		},
+		{
+			"name": "Dota 2",
+			"category": "MOBA",
+			"platform": "PC",
+			"Description": "Dota 2 is a multiplayer online battle arena (MOBA) video game developed and published by Valve Corporation. The game is a sequel to Defense of the Ancients (DotA), which was a community-created mod for Blizzard Entertainment's Warcraft III: Reign of Chaos and its expansion pack, The Frozen Throne. Dota 2 is played in matches between two teams of five players, with each team occupying and defending their own separate base on the map. Each of the ten players independently controls a powerful character, known as a hero, who all have unique abilities and differing styles of play. During a match, players collect experience points and items for their heroes to successfully defeat the opposing team's heroes in player versus player combat. A team wins by being the first to destroy a large structure located in the opposing team's base, called the Ancient."
+		},
+		{
+			"name": "Heroes of the Storm",
+			"category": "MOBA",
+			"platform": "PC",
+			"Description": "Heroes of the Storm is a multiplayer online battle arena video game developed and published by Blizzard Entertainment for Microsoft Windows and macOS, which released on June 2, 2015. The game features heroes from Blizzard's franchises including Warcraft, Diablo, StarCraft, The Lost Vikings, and Overwatch. The game uses both free-to-play and freemium models and is supported by micropayments, which can be used to purchase heroes, visual alterations for the heroes in the game, and mounts. Blizzard does not call the game a multiplayer online battle arena or an action real-time strategy because they feel it is something different with a broader playstyle; they refer to it as an online hero brawler."
+		},
+		{
+			"name": "Dungeons and Dragons",
+			"category": "Table top",
+			"platform": "Table top",
+			"Description": "Dungeons & Dragons (abbreviated as D&D) is a fantasy tabletop role-playing game (RPG) originally designed by Gary Gygax and Dave Arneson. It was first published in 1974 by Tactical Studies Rules, Inc. (TSR). The game has been published by Wizards of the Coast (now a subsidiary of Hasbro) since 1997. It was derived from miniature wargames with a variation of Chainmail serving as the initial rule system. D&D's publication is commonly recognized as the beginning of modern role-playing games and the role-playing game industry."
+		},
+		{
+			"name": "Warhammer 40,000",
+			"category": "Table top",
+			"platform": "Table top",
+			"Description": "A game of Warhammer 40,000 is a simulation of a terrestrial battle between two or more armies. Players use miniature models made of plastic or metal that represent futuristic warriors and fighting vehicles. The playing field is typically a tabletop diorama of a battlefield, comprising scale models of buildings, hills, trees, and other landmarks. Players take turns to move their models across the playing field and pretend that the models are shooting at each other. The outcomes of fights between models are determined by dice rolls."
+		},
+		{
+			"name": "HeroClix",
+			"category": "Table top",
+			"platform": "Table top",
+			"Description": "HeroClix is a collectible miniatures game that uses the Clix system that centers on the world of superhero comic books, especially the Marvel and DC Comics universes. Players construct teams of comic book heroes, villains, or characters from various video games series such as Street Fighter, Gears of War, and Halo and engage in a turn-by-turn battle on grid maps based on various storyline locations. The game was originally designed and produced by WizKids, but was discontinued in November 2008 when WizKids owner Topps shut down their HeroClix line. In September 2009, collectible toy producer National Entertainment Collectibles Association (NECA) purchased some of the WizKids' intellectual property from Topps, including the HeroClix rights and then soon after began to produce and sell new HeroClix series."
+		},
+		{
+			"name": "Chess",
+			"category": "Table top",
+			"platform": "Table top",
+			"Description": "Chess is a two-player strategy board game played on a chessboard, a checkered gameboard with 64 squares arranged in an 8×8 grid. Play does not involve hidden information. Each player begins with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. Each of the six piece types moves differently, with the most powerful being the queen and the least powerful the pawn. The objective is to checkmate the opponent's king by placing it under an inescapable threat of capture."
+		},
+		{
+			"name": "Android: Netrunner",
+			"category": "Table top",
+			"platform": "Table top",
+			"Description": "Android: Netrunner is a Living Card Game (LCG) produced by Fantasy Flight Games. It is a two-player game set in the dystopian future of the Android universe. Each game is played as a battle between a megacorporation and a hacker (runner) in a duel to take control of data."
+		},
+		{
+			"name": "Magic: The Gathering Commander",
+			"category": "Table top",
+			"platform": "Table top",
+			"Description": "Commander is a format where players construct 100-card decks, with each card except basic lands appearing no more than once. Players also choose a legendary creature (or Planeswalker card in Commander 2014) to be their Commander (also known as a General), which begins the game in the Command Zone. Each player's deck is based and built around their Commander's colors. In addition to the same losing conditions that exist in a normal game of Magic, each player starts the game with 40 life points instead of 20, and a player may lose if he or she is dealt 21 or more total points of combat damage from a single Commander throughout the game. Commander is most commonly played in groups of four, but larger groups do happen. A one-on-one variant on the Commander rule set has been rising in popularity."
+		},
+		{
+			"name": "Melee",
+			"category": "Table top",
+			"platform": "Table top",
+			"Description": "Melee is a man-to-man combat boardgame designed by Steve Jackson, and released in 1977 by Metagaming Concepts. Melee was an arena combat game where each player generated a character by purchasing Strength, Dexterity and equipment as part of a point-based character creation system, and then these characters fought via a tactical combat system that used six-sided dice."
+		},
+		{
+			"name": "Mario Tennis Aces",
+			"category": "Other",
+			"platform": "Nintendo Switch",
+			"Description": "Mario Tennis Aces is a tennis game developed by Camelot Software Planning and published by Nintendo for the Nintendo Switch. The gameplay of Mario Tennis Aces consists of playing matches of tennis with various characters from the Super Mario series."
+		},
+		{
+			"name": "Pokémon Sun and Moon",
+			"category": "Other",
+			"platform": "Nintendo 3DS",
+			"Description": "Pokémon Sun and Moon are role-playing video games with adventure elements, based in the fictional Alola region (loosely based on Hawaii), presented in a third-person, overhead perspective. The player controls a young trainer who goes on a quest to catch and train creatures known as Pokémon, and win battles against other trainers. By defeating enemy Pokémon in turn-based battles, the player's Pokémon gains experience, allowing them to level up and increase their battle statistics, learn new battle techniques, and in some cases, evolve into more powerful Pokémon."
+		},
+		{
+			"name": "Hearthstone",
+			"category": "Other",
+			"platform": "PC/IOS/Android",
+			"Description": "Hearthstone, originally Hearthstone: Heroes of Warcraft, is a free-to-play online collectible card video game developed and published by Blizzard Entertainment."
+		}
+	]		
+}

@@ -3,11 +3,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 /* Create your schema */
-var listingSchema = new Schema({
+var gamesSchema = new Schema({
 	name: {
 		type: String,
 		required: true
 	},
+	category: {
+		type: String,
+		required: true
+	}
 	platform: {
 		type: String,
 		required: true
@@ -21,7 +25,7 @@ var listingSchema = new Schema({
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
-listingSchema.pre('save', function (next) {
+gamesSchema.pre('save', function (next) {
 	var currentTime = new Date;
 	this.updated_at = currentTime;
 	if (!this.created_at) {
@@ -31,7 +35,7 @@ listingSchema.pre('save', function (next) {
 });
 
 /* Use your schema to instantiate a Mongoose model */
-var Listing = mongoose.model('Listing', listingSchema);
+var Games = mongoose.model('Games', gamesSchema);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-module.exports = Listing;
+module.exports = Games;
