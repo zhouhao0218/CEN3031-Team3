@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var config = require('./config');
-var listingsRouter = require('../routes/listings.server.routes');
+var listingsRouter = require('../routes/games.server.routes');
 
 module.exports.init = function () {
 	//connect to database

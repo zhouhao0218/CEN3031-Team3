@@ -11,7 +11,7 @@ var gamesSchema = new Schema({
 	category: {
 		type: String,
 		required: true
-	}
+	},
 	platform: {
 		type: String,
 		required: true
