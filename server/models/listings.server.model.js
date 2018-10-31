@@ -3,29 +3,27 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 /* Create your schema */
-var eventSchema = new Schema({
+var listingSchema = new Schema({
 	name: {
 		type: String,
 		required: true
 	},
-	date: {
+	code: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
-	gamesavailable: {
-		type: String,
-		required: true
-	},
-	address: {
-		String
-	
+	address: String,
+	coordinates: {
+		latitude: Number,
+		longitude: Number
 	},
 	created_at: Date,
 	updated_at: Date
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
-EventSchema.pre('save', function (next) {
+listingSchema.pre('save', function (next) {
 	var currentTime = new Date;
 	this.updated_at = currentTime;
 	if (!this.created_at) {
@@ -35,7 +33,7 @@ EventSchema.pre('save', function (next) {
 });
 
 /* Use your schema to instantiate a Mongoose model */
-var Event = mongoose.model('Event', eventSchema);
+var Listing = mongoose.model('Listing', listingSchema);
 
 /* Export the model to make it avaiable to other parts of your Node application */
-module.exports = Event;
+module.exports = Listing;
