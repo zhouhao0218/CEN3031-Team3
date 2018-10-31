@@ -58,9 +58,8 @@
 /******************* end navbar ***************************/
 
 .SearchBar{
-	padding: 40px;
-	position: relative;
-	left: 1170px;
+	padding: 5px;
+	float: right;
 }
 /****************** end search bar ************************/
 
