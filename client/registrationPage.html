@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Page</title>
+	<link rel="stylesheet" type="text/css" href="stylesRegistration.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div class="form">
+		<div class="head" class="signup">
+			<div onclick="swap(this);" data-tap="login" class="login-tap">
+				LOGIN
+			</div>
+			<div onclick="swap(this);" data-tap="signup" class="signup-tap">
+				SIGNUP
+			</div>
+			
+		</div>
+		<div class="body" id="form-body">
+			<div class="login">
+				<div class="form-row">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+					<input type="email" placeholder="Email">
+					<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+					<input type="password" placeholder="Password">
+					<button>Login</button>
+				</div>
+				
+
+				
+			</div>
+			<div class="signup">
+				<div class="form-row">
+					<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+					<input type="text" placeholder="Username">
+
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+					<input type="email" placeholder="Email">
+
+					<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+					<input type="Password" placeholder="Password">
+
+					<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+					<input type="Password" placeholder="Re-type Password">
+
+					<button>Sign Up</button>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	<script>
+		function swap() {
+
+			document.getElementById("form-body").classList.toggle("active");
+
+			/*if(referTo.getAttribute("data-tab") == "login") {
+				document.getElementById("form-body").classList.remove("active");
+				referTo.parentNode.classList.remove("signup");
+			}
+			else{
+				document.getElementById("form-body").classList.add("active");
+				referTo.parentNode.classList.add("signup");
+			}*/
+		}
+	</script>
+
+</body>
+</html>
