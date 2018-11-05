@@ -12,6 +12,10 @@ var eventSchema = new Schema({
 		type: String,
 		required: true
 	},
+	time: {
+		type: String,
+		required: true
+	},
 	gamesavailable: {
 		type: String,
 		required: true
