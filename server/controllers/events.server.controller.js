@@ -75,7 +75,7 @@ exports.delete = function (req, res) {
 
 /* Retreive all the directory events, sorted alphabetically by event code */
 exports.list = function (req, res) {
-	event.find({}).sort('date').exec(function(err, items) {
+	Event.find({}).sort('date').exec(function(err, items) {
 		res.json(items);
 	});
 };
@@ -88,7 +88,7 @@ exports.list = function (req, res) {
    then finally call next
 */
 exports.eventByID = function (req, res, next, id) {
-	event.findById(id).exec(function (err, event) {
+	Event.findById(id).exec(function (err, event) {
 		if (err) {
 			res.status(400).send(err);
 		} else {
