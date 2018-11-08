@@ -29,7 +29,7 @@ var eventSchema = new Schema({
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
-EventSchema.pre('save', function (next) {
+eventSchema.pre('save', function (next) {
 	var currentTime = new Date;
 	this.updated_at = currentTime;
 	if (!this.created_at) {

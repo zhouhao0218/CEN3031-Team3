@@ -4,11 +4,15 @@ var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var config = require('./config');
-var listingsRouter = require('../routes/games.server.routes');
+var accountsRouter = require('../routes/accounts.server.routes');
+var eventsRouter = require('../routes/events.server.routes');
+var gamesRouter = require('../routes/games.server.routes');
 
 module.exports.init = function () {
 	//connect to database
-	mongoose.connect(config.db.uri);
+	mongoose.connect(config.db1.uri);
+	mongoose.connect(config.db2.uri);
+	mongoose.connect(config.db3.uri);
 
 	//initialize app
 	var app = express();
@@ -24,7 +28,9 @@ module.exports.init = function () {
 	app.use(express.static('client'));
 
 	/* Use the listings router for requests to the api */
-	app.use('/api/listings', listingsRouter);
+	app.use('/api/accounts', accountsRouter);
+	app.use('/api/events', eventsRouter);
+	app.use('/api/games', gamesRouter);
 
 	/* Go to homepage for all routes not specified */
 	app.use(function (req, res, next) {
