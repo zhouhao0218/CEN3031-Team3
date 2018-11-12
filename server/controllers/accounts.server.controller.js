@@ -10,7 +10,7 @@ exports.create = function (req, res) {
 	account.save(function (err) {
 		if (err) {
 			if (err.code == 11000) {
-				res.status(406).end('Username or email already in use');
+				res.status(409).end('Username or email already in use');
 			} else {
 				console.log(err);
 				res.status(400).send(err);
