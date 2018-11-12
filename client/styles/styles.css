@@ -53,6 +53,8 @@
 }
 
 .GamerGator{
+	float: right;
+    margin-right: 200px;
 	color: blue;
 }
 /******************* end navbar ***************************/
@@ -174,6 +176,15 @@ img {
 	clear: both;
 	display: table;
   }
+
+.center {
+    margin:auto;
+	width: 50%;
+}
+.titleText {
+	font-size: large;
+
+}
 /*optional design stuff*/
 
 

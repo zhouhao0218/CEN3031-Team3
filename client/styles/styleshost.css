@@ -53,8 +53,11 @@
 }
 
 .GamerGator{
-	color: blue;
+		float: right;
+		margin-right: 200px;
+		color: blue;
 }
+
 /******************* end navbar ***************************/
 
 .SearchBar{
@@ -181,7 +184,8 @@ img {
     width: 50%;
 }
 .host {
-    color: blue;
+	padding-top:75px;
+	color: blue;
 }
 *{
 	margin: 0;
