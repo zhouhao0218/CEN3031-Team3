@@ -1,8 +1,8 @@
 var accounts = require('../controllers/accounts.server.controller.js');
 var express = require('express');
 var router = express.Router();
-//router.route('/').get(accounts.list).post(accounts.create);
 
+router.route('/').post(accounts.create).put(accounts.login);
 
 // The ':' specifies a URL parameter. 
 

@@ -17,6 +17,10 @@ exports.create = function (req, res) {
 	});
 };
 
+exports.login = function(req, res) {
+	res.json(req.body);
+};
+
 /* Show the current listing */
 exports.read = function (req, res) {
 	/* send back the listing as json from the request */
@@ -56,13 +60,6 @@ exports.delete = function (req, res) {
 	});
 };
 
-/* Retreive all the directory listings, sorted alphabetically by listing code */
-exports.list = function (req, res) {
-	var account = req.account;
-	account.find({}).sort('username').exec(function(err, items) {
-		res.json(items);
-	});
-};
 
 /* 
    Middleware: find a listing by its ID, then pass it to the next request handler. 

@@ -4,6 +4,7 @@
 	<title>Registration Page</title>
 	<link rel="stylesheet" type="text/css" href="./styles/stylesRegistration.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="./js/controllers/accountController.js"></script>
 </head>
 
 <body>
@@ -18,13 +19,14 @@
 			
 		</div>
 		<div class="body" id="form-body">
+			<div style="color: red; font-size:16pt" id="form_err"></div>
 			<div class="login">
 				<div class="form-row">
 					<i class="fa fa-envelope" aria-hidden="true"></i>
-					<input type="email" placeholder="Email">
+					<input id="f_email"  type="email" placeholder="Email">
 					<i class="fa fa-unlock-alt" aria-hidden="true"></i>
-					<input type="password" placeholder="Password">
-					<button>Login</button>
+					<input id="f_password" type="password" placeholder="Password">
+					<button id="log_in_btn">Login</button>
 				</div>
 				
 
@@ -33,18 +35,18 @@
 			<div class="signup">
 				<div class="form-row">
 					<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-					<input type="text" placeholder="Username">
+					<input id="r_username" type="text" placeholder="Username">
 
 					<i class="fa fa-envelope" aria-hidden="true"></i>
-					<input type="email" placeholder="Email">
+					<input id="r_email" type="email" placeholder="Email">
 
 					<i class="fa fa-unlock-alt" aria-hidden="true"></i>
-					<input type="Password" placeholder="Password">
+					<input id="r_password" type="Password" placeholder="Password">
 
 					<i class="fa fa-unlock-alt" aria-hidden="true"></i>
-					<input type="Password" placeholder="Re-type Password">
+					<input id="r_password_again" type="Password" placeholder="Re-type Password">
 
-					<button>Sign Up</button>
+					<button id="sign_up_btn">Sign Up</button>
 					
 				</div>
 				
