@@ -406,8 +406,27 @@ button:hover {
 
 /*optional design stuff*/
 
+/*
 
+page specific below
 
+*/
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 0px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
 
 
 
