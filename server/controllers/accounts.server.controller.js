@@ -9,8 +9,12 @@ exports.create = function (req, res) {
 	/* Then save the listing */
 	account.save(function (err) {
 		if (err) {
-			console.log(err);
-			res.status(400).send(err);
+			if (err.code == 11000) {
+				res.status(406).end('Username or email already in use');
+			} else {
+				console.log(err);
+				res.status(400).send(err);
+			}
 		} else {
 			res.json(account);
 		}

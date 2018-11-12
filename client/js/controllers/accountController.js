@@ -7,8 +7,9 @@ window.addEventListener('load', function() {
 			if (req.readyState != 4)
 				return;
 			if (req.status == 200) {
-				console.log(req.responseText);
 				on_ok();
+			} else if (req.status == 406) {
+				on_err(req.responseText);
 			} else {
 				on_err('Bad response from server: ' + req.status + ' ' + req.statusText);
 			}
