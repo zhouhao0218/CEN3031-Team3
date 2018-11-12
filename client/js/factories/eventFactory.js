@@ -1,4 +1,4 @@
-angular.module('listings', []).factory('Events', function($http) {
+angular.module('Events', []).factory('Events', function($http) {
 	var methods = {
 		getAll: function() {
 			return $http.get('/api/events');
