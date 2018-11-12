@@ -404,6 +404,10 @@ button:hover {
     to {transform: scale(1)}
 }
 
+/*
+	page specific below
+*/
+
 img {
     display: block;
     margin-left: auto;
@@ -411,10 +415,4 @@ img {
 }
 
 /*optional design stuff*/
-
-
-
-
-
-
 
