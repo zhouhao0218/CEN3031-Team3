@@ -187,6 +187,12 @@ img {
 	padding-top:75px;
 	color: blue;
 }
+.inputField {
+	padding:20px;
+}
+.inputFieldSize {
+	padding:10px;
+}
 *{
 	margin: 0;
 	padding: 0;
