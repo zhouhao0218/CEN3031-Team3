@@ -60,6 +60,11 @@ exports.delete = function (req, res) {
 	});
 };
 
+exports.list = function (req, res) {
+	Account.find({}).exec(function(err, items) {
+		res.json(items);
+	});
+};
 
 /* 
    Middleware: find a listing by its ID, then pass it to the next request handler. 
@@ -69,7 +74,7 @@ exports.delete = function (req, res) {
    then finally call next
 */
 exports.accountsByID = function (req, res, next, id) {
-	Account.findById(id).exec(function (err, listing) {
+	Account.findById(id).exec(function (err, account) {
 		if (err) {
 			res.status(400).send(err);
 		} else {
