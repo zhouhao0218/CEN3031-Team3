@@ -3,6 +3,7 @@
 <head>
 	<title>HostPage</title>
 	<link rel="stylesheet" type="text/css" href="styles/styleshost.css">
+	<link rel="stylesheet" type="text/css" href="styles/modal.css">
 	<script src="js/controllers/eventController.js"></script>
 </head>
 
@@ -18,8 +19,8 @@
 		<div class="navbar_link">
 			<ul class="menu">
 				<li><a href="HostPage.html">Host an Event</a></li>
-				<li><a href="#">Login</a></li>
-				<li><a href="#">Sign Up!</a></li>
+				<li><a id="login_link" href="#">Login</a></li>
+				<li><a id="register_link" href="#">Sign Up!</a></li>
 			</ul>
 			<h1 class="GamerGator" align="center">GamerGator</hi>
 		</div>
@@ -82,7 +83,7 @@
                         </div>
                     </div>
 					<div style="color:red; font-size:14pt;" id="form_err"></div>
-                            <div class="simple-form">
+                            <div class="simple-form" id= "form-body">
                                 <input id="new_name" type="text" placeholder="Name">
                                 <div class= "inputField"> 
                                 	<input id="new_date" class= "inputFieldSize" type="Date" placeholder="Date">
@@ -94,3 +95,17 @@
                             </div>
             </div>
     </div>
+	<div id="iframe_container">
+		<button id="iframe_container_close_btn">Close</button>
+		<br>
+		<iframe src="registrationPage.html"></iframe>
+		<script src="./js/login_modal.js"></script>
+	</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div>
+		<p><a href="">Contact Us</a></p>
+
+
+		<h5 class="information">For more information about GamerGator or Cloud3 contact us by email at 123@me.com or call us at 555-123-4567</h5>
+
+	</div>
