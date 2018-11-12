@@ -32,6 +32,9 @@ module.exports.init = function () {
 	app.use('/api/events', eventsRouter);
 	app.use('/api/games', gamesRouter);
 
+	app.use('/api/', function(req, res, next) {
+		res.status(404).end();
+	});
 	/* Go to homepage for all routes not specified */
 	app.use(function (req, res, next) {
 		res.redirect('/');

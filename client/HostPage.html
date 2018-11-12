@@ -3,6 +3,7 @@
 <head>
 	<title>HostPage</title>
 	<link rel="stylesheet" type="text/css" href="styles/styleshost.css">
+	<script src="js/controllers/eventController.js"></script>
 </head>
 
 <body>
@@ -79,23 +80,23 @@
                         <div class="host">
                             <h2>Host an Event</h2>
                         </div>
-                        
                     </div>
+					<div style="color:red; font-size:14pt;" id="form_err"></div>
                     <div class="body" id="form-body">
                         <div class="login">
                             <div class="form-row">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <input type="text" placeholder="Name">
+                                <input id="new_name" type="text" placeholder="Name">
                                 <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                                <input type="Date" placeholder="Date">
+                                <input id="new_date" type="Date" placeholder="Date">
                                 <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                                <input type="Time" placeholder="Time">
+                                <input id="new_time" type="Time" placeholder="Time">
                                 <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                                <input type="text" placeholder="Location">
+                                <input id="new_location" type="text" placeholder="Location">
                                 <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                                <input type="text" placeholder="Games at Event">
+                                <input id="new_game" type="text" placeholder="Games at Event">
                                 
-                                <button type="submit"form="form-body" value="submit">Create!</button>
+                                <button type="submit" id="create_evt_btn" form="form-body" value="submit">Create!</button>
                             </div>
                         </div>
                     </div>

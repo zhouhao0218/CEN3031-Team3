@@ -3,20 +3,10 @@
 var mongoose = require('mongoose');
 var Event = require('../models/events.server.model.js');
 
-/*
-  In this file, you should use Mongoose queries in order to retrieve/add/remove/update events.
-  On an error you should send a 404 status code, as well as the error message. 
-  On success (aka no error), you should send the event(s) as JSON in the response.
-
-  HINT: if you are struggling with implementing these functions, refer back to this tutorial 
-  from assignment 3 https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
-*/
-
 /* Create a event */
 exports.create = function (req, res) {
 	/* Instantiate a event */
-	var event = new event(req.body);
-
+	var event = new Event(req.body);
 	/* Then save the event */
 	event.save(function (err) {
 		if (err) {
@@ -39,18 +29,28 @@ exports.update = function (req, res) {
 	var event = req.event;
 	if (req.body.name) {
 		event.name = req.body.name;
+	} else {
+		req.status(400).end();
 	}
 	if (req.body.date) {
 		event.date = req.body.date;
+	} else {
+		req.status(400).end();
 	}
 	if (req.body.time) {
 		event.time = req.body.time;
+	} else {
+		req.status(400).end();
 	}
 	if (req.body.gamesavailable) {
 		event.gamesavailable = req.body.gamesavailable;
+	} else {
+		req.status(400).end();
 	}
 	if (req.body.address) {
 		event.address = req.body.address;
+	} else {
+		req.status(400).end();
 	}
 	event.save(function(err, what) {
 		if (err) {
