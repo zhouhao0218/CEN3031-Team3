@@ -22,7 +22,24 @@ exports.create = function (req, res) {
 };
 
 exports.login = function(req, res) {
-	res.json(req.body);
+	if (! (req.body && req.body.email && req.body.password)) {
+		res.status(400).end();
+		return;
+	}
+	var q = {
+		email : req.body.email,
+		password : req.body.password,
+	};
+	Account.find(q).exec(function(err, items) {
+		if (err) {
+			console.log(err);
+			res.status(400).end();
+		} else if (items.length == 1) {
+			res.status(200).end();
+		} else {
+			res.status(409).end('Bad email or password');
+		}
+	});
 };
 
 /* Show the current listing */
