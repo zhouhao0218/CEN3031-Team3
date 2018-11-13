@@ -11,7 +11,9 @@ window.addEventListener('load', function() {
 	var set_click_for = function(obj_id) {
 		document.getElementById(obj_id).addEventListener('click', toggle);
 	};
-	set_click_for('iframe_container_close_btn');
+	document.getElementById('iframe_container_close_btn').addEventListener('click', function() {
+		window.location.reload();
+	});
 	set_click_for('login_link');
 	set_click_for('register_link');
 	var set_text = function(obj_id, str) {
