@@ -3,6 +3,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 var config = require('./config');
 var accountsRouter = require('../routes/accounts.server.routes');
 var eventsRouter = require('../routes/events.server.routes');
@@ -23,6 +24,11 @@ module.exports.init = function () {
 	//body parsing middleware 
 	app.use(bodyParser.json());
 
+	app.use(session({
+		secret: 'isdjfkjasdflkjasdf',
+		resave: false,
+		saveUninitialized: true,
+	}));
 
 	/* Serve static files */
 	app.use(express.static('client'));
@@ -31,6 +37,14 @@ module.exports.init = function () {
 	app.use('/api/accounts', accountsRouter);
 	app.use('/api/events', eventsRouter);
 	app.use('/api/games', gamesRouter);
+
+	app.use('/api/am-i-logged-in', function(req, res) {
+		if (req.session && req.session.email && req.session.username) {
+			res.status(200).end('yes');
+		} else {
+			res.status(400).end('no');
+		}
+	});
 
 	app.use('/api/', function(req, res, next) {
 		res.status(404).end();

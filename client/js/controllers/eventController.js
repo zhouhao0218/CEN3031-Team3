@@ -27,6 +27,8 @@ window.addEventListener('load', function() {
 				return;
 			if (req.status == 200) {
 				on_ok();
+			} else if (req.status == 409) {
+				on_err(req.responseText);
 			} else {
 				on_err('Bad response from server: ' + req.status + ' ' + req.statusText);
 			}

@@ -5,6 +5,10 @@ var Event = require('../models/events.server.model.js');
 
 /* Create a event */
 exports.create = function (req, res) {
+	if (! (req.session && req.session.email && req.session.username)) {
+		res.status(409).end('Please login to create events');
+		return;
+	}
 	/* Instantiate a event */
 	var event = new Event(req.body);
 	/* Then save the event */
