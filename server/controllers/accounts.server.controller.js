@@ -18,6 +18,7 @@ exports.create = function (req, res) {
 		} else {
 			req.session.email = account.email;
 			req.session.username = account.username;
+			req.session.userid = account._id;
 			res.status(200).end();
 		}
 	});
@@ -39,6 +40,7 @@ exports.login = function(req, res) {
 		} else if (items.length == 1) {
 			req.session.email = items[0].email;
 			req.session.username = items[0].username;
+			req.session.userid = items[0]._id;
 			res.status(200).end();
 		} else {
 			res.status(409).end('Bad email or password');

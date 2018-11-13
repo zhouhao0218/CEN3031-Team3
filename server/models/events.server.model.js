@@ -20,9 +20,8 @@ var eventSchema = new Schema({
 		type: String,
 		required: true
 	},
-	address: {
-		String
-	
+	location: {
+		type: String,
 	},
 	created_at: Date,
 	updated_at: Date

@@ -2,10 +2,11 @@
 /* Dependencies */
 var mongoose = require('mongoose');
 var Event = require('../models/events.server.model.js');
+var Account = require('../models/accounts.server.model.js');
 
 /* Create a event */
 exports.create = function (req, res) {
-	if (! (req.session && req.session.email && req.session.username)) {
+	if (! (req.session && req.session.email && req.session.username && req.session.userid)) {
 		res.status(409).end('Please login to create events');
 		return;
 	}
@@ -17,8 +18,60 @@ exports.create = function (req, res) {
 			console.log(err);
 			res.status(400).send(err);
 		} else {
-			res.json(event);
+			Account.findByIdAndUpdate(req.session.userid, {
+				$push : {
+					my_events : {
+						hosting : true,
+						event_id : event._id,
+					}
+				}
+			}, null, function(err, doc) {
+				if (err) {
+					console.log(err);
+				}
+			});
+			res.json(event);		
 		}
+	});
+};
+
+exports.register_for = function(req, res) {
+	if (! (req.session && req.session.email && req.session.username && req.session.userid)) {
+		res.status(409).end('Please login to register for events');
+		return;
+	}
+	Account.findById(req.session.userid, function(err, acct) {
+		if (err) {
+			console.log(err);
+			res.status(400).end();
+			return;
+		}
+		for (var i = 0; i < acct.my_events.length; ++i) {
+			if (acct.my_events[i].event_id.toString() == req.event._id.toString()) {
+				if (acct.my_events[i].hosting) {
+					res.status(409).end('You cannot register for an event you are hosting');
+				} else {
+					res.status(409).end('Already registered');
+				}
+				return;
+			}
+		}
+		console.log('sssss');
+		acct.update({
+			$push : {
+				my_events : {
+					hosting : false,
+					event_id : req.event._id,
+				}
+			}
+		}, null, function(err, doc) {
+			if (err) {
+				console.log(err);
+				res.status(400).end();
+			} else {
+				res.status(200).end();
+			}
+		});
 	});
 };
 

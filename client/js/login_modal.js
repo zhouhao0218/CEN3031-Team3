@@ -4,7 +4,9 @@ window.addEventListener('load', function() {
 		var container = document.getElementById('iframe_container');
 		if (container.style.display == 'block') {
 			container.style.display = 'none';
-		} else if (! logged_in) {
+		} else if (logged_in) {
+			window.location.href = './myAccount.html';
+		} else {
 			container.style.display = 'block';
 		}
 	};
@@ -27,7 +29,7 @@ window.addEventListener('load', function() {
 	};
 	(function() {
 		var req = new XMLHttpRequest();
-		req.open('GET', '/api/am-i-logged-in', true);
+		req.open('GET', '/api/me/username', true);
 		req.onreadystatechange = function() {
 			if (req.readyState != 4)
 				return;

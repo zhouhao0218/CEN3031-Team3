@@ -20,6 +20,10 @@ var userSchema = new Schema({
 		type: String, 
 		required: true
 	},
+	my_events: {
+		type: Array,
+		default: [],
+	},
 	created_at: Date,
 	updated_at: Date
 });

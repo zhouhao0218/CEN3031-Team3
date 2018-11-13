@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Account</title>
+	<link rel="stylesheet" type="text/css" href="styles/stylesEventPage.css">
+	<link rel="stylesheet" type="text/css" href="styles/modal.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="./js/controllers/myAccountController.js"></script>
+</head>
+<body>
+
+
+
+<!-																						-!>
+	<div class="navbar">
+		<div class="container">
+			<div class="logo_div">
+			<a href="index.html">
+			<img src="6.jpg" class="logo" >
+			</a>
+		</div>
+
+		<div class="navbar_link">
+			<ul class="menu">
+				<li><a href="HostPage.html">Host an Event</a></li>
+				<li><a id="login_link" href= "#">Login</a></li>
+				<li><a href="#" id="register_link">Sign Up!</a></li>
+
+			</ul>
+			<h1 class="GamerGator" align="center">GamerGator</hi>
+		</div>
+			
+		</div>
+	</div>
+
+	<div class="SearchBar">
+			<form>
+				<p><input type="text" placeholder="Search" ></p>
+
+			</form>
+	</div>
+
+	<br>
+
+	<ul id="dropmenu" class="center">
+		<li><a href="#">Shooters</a>
+			<ul class="sub1">
+				<li><a href="#">CS:GO</a></li>
+				<li><a href="#">Overwatch</a></li>
+				<li><a href="#">Game 3</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Fighting</a>
+			<ul class="sub1">
+				<li><a href="#">Game 1</a></li>
+				<li><a href="#">Game 2</a></li>
+				<li><a href="#">Game 3</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Moba's</a>
+			<ul class="sub1">
+				<li><a href="#">Game 1</a></li>
+				<li><a href="#">Game 2</a></li>
+				<li><a href="#">Game 3</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Table Top</a>
+			<ul class="sub1">
+				<li><a href="#">Game 1</a></li>
+				<li><a href="#">Game 2</a></li>
+				<li><a href="#">Game 3</a></li>
+			</ul>
+		</li>
+		
+		<li><a href="#">Other</a></li>
+		
+	</ul>
+
+	<br> <br> <br> <br> <br> <br> <br> <br>
+<!-																						-!>
+
+<h2 id="err_msg" style="color:red;"></h2>
+<h3>My Account</h3>
+<div>Username: <span id="f_username"></span></div>
+<div>Email: <span id="f_email"></span></div>
+<h3>My Events</h3>
+<table id="my_events_table">
+  <tr><td>Name</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>Role</td></tr>
+</table>
+<div id="iframe_container">
+	<button id="iframe_container_close_btn">Close</button>
+	<br>
+	<iframe src="registrationPage.html"></iframe>
+	<script src="./js/login_modal.js"></script>
+  </div>
+<br><br>
+  <div>
+	<p><a href="">Contact Us</a></p>
+
+
+	<h5 class="information">For more information about GamerGator or Cloud3 contact us by email at 123@me.com or call us at 555-123-4567</h5>
+
+</div>
+</body>
+</html>

@@ -26,7 +26,7 @@ window.addEventListener('load', function() {
 			if (req.readyState != 4)
 				return;
 			if (req.status == 200) {
-				on_ok();
+				on_ok(JSON.parse(req.responseText));
 			} else if (req.status == 409) {
 				on_err(req.responseText);
 			} else {
@@ -38,13 +38,17 @@ window.addEventListener('load', function() {
 			date: new_date,
 			time: new_time,
 			gamesavailable: new_game,
-			address: new_location,
+			location: new_location,
 		};
 		req.send(JSON.stringify(o));
 	};
 	document.getElementById('create_evt_btn').addEventListener('click', function() {
-		try_submit_form(function() {
-			set_text_to('form-body', 'Event created !');
+		try_submit_form(function(evt) {
+			set_text_to('form-body', 'Event created !  ');
+			var link = document.createElement('a');
+			link.appendChild(document.createTextNode('(click here to view)'));
+			document.getElementById('form-body').appendChild(link);
+			link.href = '/eventPage.html#' + evt._id;
 			set_text_to('form_err');
 		}, function(err) {
 			set_text_to('form_err', err);

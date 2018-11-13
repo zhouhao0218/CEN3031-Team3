@@ -12,7 +12,7 @@ router.route('/').get(events.list).post(events.create);
 /*
 	The ':' specifies a URL parameter. 
 */
-router.route('/:eventId').get(events.read).put(events.update).delete(events.delete);
+router.route('/:eventId').get(events.read).put(events.update).delete(events.delete).patch(events.register_for);
 
 /*
 	The 'router.param' method allows us to specify middleware we would like to use to handle 
