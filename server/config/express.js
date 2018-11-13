@@ -40,9 +40,9 @@ module.exports.init = function () {
 
 	app.use('/api/am-i-logged-in', function(req, res) {
 		if (req.session && req.session.email && req.session.username) {
-			res.status(200).end('yes');
+			res.status(200).end(req.session.username);
 		} else {
-			res.status(400).end('no');
+			res.status(400).end();
 		}
 	});
 
