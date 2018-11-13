@@ -6,10 +6,9 @@
 	<link rel="stylesheet" type="text/css" href="styles/modal.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="./js/controllers/eventPageController.js"></script>
+
 </head>
 <body>
-
 
 
 <!-																						-!>
@@ -34,9 +33,10 @@
 		</div>
 	</div>
 
-	<div class="SearchBar">
-			<form>
-				<p><input type="text" placeholder="Search" ></p>
+	<!- ADDED TO SEARCH BAR FUNCTIONALITY -!>
+	<div class="SearchBar" action="searchPage.html" method="myFunction">
+			<form action="searchPage.html" method="get">
+				<p><input id="searchInput" type="text" placeholder="Search" name="fname"></p>
 
 			</form>
 	</div>
@@ -84,9 +84,9 @@
 
 
 <div class="img-with-text">
-    <img src="https://i.imgur.com/Cid5Tmw.png" alt="sometext" style="width:50%;">
+    <img src="https://cdn.pixabay.com/photo/2017/01/18/10/43/banner-1989514_1280.png" alt="sometext" style="width:50%;">
     
-    <center> <h2 id="f_name"></h2> </center>
+    <center> <h2>Game Name</p> </center>
 </div>
 
 
@@ -95,14 +95,17 @@
 
 <center> <h4>Event Details</p> </center>
 
-<p style="text-align:left">Date: <span id="f_date"></span></p>
-<p style="text-align:left">Time:<span id="f_time"></span></p>
-<p style="text-align:left">Location:<span id="f_location"></span></p>
-<p style="text-align:left">Games:<span id="f_games"></span></p>
+<p style="text-align:left">Date:</p>
+<p style="text-align:left">Time:</p>
+<p style="text-align:left">Location:</p>
+<p style="text-align:left">Games:</p>
+<p style="text-align:left">Description:</p>
+<p style="text-align:left">Additional Information:</p>
 
 
-<div style="text-align:center" id="register_btn_container">
-	<button type="button" id="register_btn">Register</button>
+
+<div style="text-align:center">
+	<button type="button" onclick="alert('You have registered')">Register</button>
 </div>
 
 
@@ -120,5 +123,6 @@
 	<h5 class="information">For more information about GamerGator or Cloud3 contact us by email at 123@me.com or call us at 555-123-4567</h5>
 
 </div>
+
 </body>
 </html>
