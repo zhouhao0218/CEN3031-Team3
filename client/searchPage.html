@@ -8,6 +8,7 @@
 <title>Search Page</title>
   <link rel="stylesheet" type="text/css" href="styles/stylesSearchPage.css">
   <link rel="stylesheet" type="text/css" href="styles/modal.css">
+  <script src="./js/controllers/searchPageController.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -106,50 +107,17 @@
 
 
 
-<h2>Showing results for "whatever you typed in"...</h2>
-
-<table>
-  <tr>
+<h2>Showing results for "<span id="search_query"></span>"...</h2>
+<div id="err_msg" style="font-size:16pt"></div>
+<table id="table_main">
+  <tr style="display:none" id="row_main">
     <th height="200"; style="width:200px";><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/SmashBall.svg" height="200px" width="200px" border="0px"></th>
     <th height="200"; style="width:700px">
-    	<h3>Event Title:</h3>
-   		<h4>Data:</h4>
-   		<h4>Time:</h4>
-    	<h4>Location:</h4>
-    	<h4>Games Available:</h4>
-    </th>
-  </tr>
-
-  <tr>
-    <th height="200"; style="width:200px";><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/SmashBall.svg" height="200px" width="200px" border="0px"></th>
-    <th height="200"; style="width:700px">
-    	<h3>Event Title:</h3>
-   		<h4>Data:</h4>
-   		<h4>Time:</h4>
-    	<h4>Location:</h4>
-    	<h4>Games Available:</h4>
-    </th>
-  </tr>
-
-  <tr>
-    <th height="200"; style="width:200px";><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/SmashBall.svg" height="200px" width="200px" border="0px"></th>
-    <th height="200"; style="width:700px">
-    	<h3>Event Title:</h3>
-   		<h4>Data:</h4>
-   		<h4>Time:</h4>
-    	<h4>Location:</h4>
-    	<h4>Games Available:</h4>
-    </th>
-  </tr>
-
-  <tr>
-    <th height="200"; style="width:200px";><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/SmashBall.svg" height="200px" width="200px" border="0px"></th>
-    <th height="200"; style="width:700px">
-    	<h3>Event Title:</h3>
-   		<h4>Data:</h4>
-   		<h4>Time:</h4>
-    	<h4>Location:</h4>
-    	<h4>Games Available:</h4>
+    	<h3>Event Title:  <span></span></h3>
+   		<h4>Date:  <span></span></h4>
+   		<h4>Time:  <span></span></h4>
+    	<h4>Location:  <span></span></h4>
+    	<h4>Games Available:  <span></span></h4>
     </th>
   </tr>
 </table>
