@@ -30,7 +30,7 @@ exports.create = function (req, res) {
 			res.status(400).end();
 		} else if (record.length > 0) {
 			if (record[0].host) {
-				res.status(409).end('You are hosting this event');
+				res.status(409).end('You are already hosting this event');
 			} else {
 				res.status(409).end('You already registered');
 			}

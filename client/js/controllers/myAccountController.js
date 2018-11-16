@@ -31,6 +31,7 @@ window.addEventListener('load', function() {
 	};
 	var err_func = function(err) {
 		set_text('err_msg', err);
+		set_text('everything');
 	};
 	var append_event = function(event_id, hosting) {
 		var tab = document.getElementById('my_events_table');
@@ -53,20 +54,22 @@ window.addEventListener('load', function() {
 			tab.appendChild(tr);
 		}, err_func);
 	};
-	send_to('GET', '/api/me/id', null, function(my_id) {
-		send_to('GET', '/api/accounts/' + my_id, null, function(json_str) {
-			var obj = JSON.parse(json_str);
-			if (! obj) {
-				err_func('User does not exist');
-			}
-			set_text('f_username', obj.username);
-			set_text('f_email', obj.email);
-			if (obj.my_events.length == 0) {
-				set_text('my_events_table', 'You are not yet part of any events');
-			}
-			for (var i in obj.my_events) {
-				append_event(obj.my_events[i].event_id, obj.my_events[i].hosting);
-			}
-		}, err_func);
+	send_to('GET', '/api/me/email', null, function(my_email) {
+		set_text('f_email', my_email);
 	}, err_func);
+	send_to('GET', '/api/me/username', null, function(my_username) {
+		set_text('f_username', my_username);
+	}, err_func);
+	send_to('GET', '/api/me/events', null, function(my_evts_json) {
+		var my_evts = JSON.parse(my_evts_json);
+		if (!my_evts || my_evts.length == 0) {
+			set_text('my_events_table', 'You are not part of any events');
+			return;
+		}
+		for (var i in my_evts) {
+			append_event(my_evts[i].event, my_evts[i].host);
+		}
+	}, err_func);
+	//append_event(event_id, hosting);
+
 });

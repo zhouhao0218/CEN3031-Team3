@@ -9,6 +9,7 @@ var accountsRouter = require('../routes/accounts.server.routes');
 var eventsRouter = require('../routes/events.server.routes');
 var gamesRouter = require('../routes/games.server.routes');
 var rolesRouter = require('../routes/roles.server.routes');
+var meRouter = require('../routes/me.server.routes');
 
 module.exports.init = function () {
 	//connect to database
@@ -39,30 +40,7 @@ module.exports.init = function () {
 	app.use('/api/events', eventsRouter);
 	app.use('/api/games', gamesRouter);
 	app.use('/api/roles', rolesRouter);
-
-	app.use('/api/me/username', function(req, res) {
-		if (req.session && req.session.email && req.session.username && req.session.userid) {
-			res.status(200).end(req.session.username);
-		} else {
-			res.status(400).end();
-		}
-	});
-
-	app.use('/api/me/id', function(req, res) {
-		if (req.session && req.session.email && req.session.username && req.session.userid) {
-			res.status(200).end(req.session.userid);
-		} else {
-			res.status(400).end();
-		}
-	});
-
-	app.use('/api/me/email', function(req, res) {
-		if (req.session && req.session.email && req.session.username && req.session.userid) {
-			res.status(200).end(req.session.email);
-		} else {
-			res.status(400).end();
-		}
-	});
+	app.use('/api/me', meRouter);
 
 	app.use('/api/', function(req, res, next) {
 		res.status(404).end();
