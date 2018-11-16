@@ -8,6 +8,7 @@ var config = require('./config');
 var accountsRouter = require('../routes/accounts.server.routes');
 var eventsRouter = require('../routes/events.server.routes');
 var gamesRouter = require('../routes/games.server.routes');
+var rolesRouter = require('../routes/roles.server.routes');
 
 module.exports.init = function () {
 	//connect to database
@@ -37,6 +38,7 @@ module.exports.init = function () {
 	app.use('/api/accounts', accountsRouter);
 	app.use('/api/events', eventsRouter);
 	app.use('/api/games', gamesRouter);
+	app.use('/api/roles', rolesRouter);
 
 	app.use('/api/me/username', function(req, res) {
 		if (req.session && req.session.email && req.session.username && req.session.userid) {

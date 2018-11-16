@@ -2,7 +2,7 @@
 /* Dependencies */
 var mongoose = require('mongoose');
 var Event = require('../models/events.server.model.js');
-var Account = require('../models/accounts.server.model.js');
+var Role = require('../models/roles.server.model.js');
 
 /* Create a event */
 exports.create = function (req, res) {
@@ -10,27 +10,25 @@ exports.create = function (req, res) {
 		res.status(409).end('Please login to create events');
 		return;
 	}
-	/* Instantiate a event */
 	var event = new Event(req.body);
-	/* Then save the event */
 	event.save(function (err) {
 		if (err) {
 			console.log(err);
-			res.status(400).send(err);
+			res.status(400).end();
 		} else {
-			Account.findByIdAndUpdate(req.session.userid, {
-				$push : {
-					my_events : {
-						hosting : true,
-						event_id : event._id,
-					}
-				}
-			}, null, function(err, doc) {
+			var role = new Role({
+				event: event._id,
+				user: req.session.userid,
+				host: true
+			});
+			role.save(function(err) {
 				if (err) {
 					console.log(err);
+					res.status(400).end();
+				} else {
+					res.json(event);
 				}
 			});
-			res.json(event);		
 		}
 	});
 };

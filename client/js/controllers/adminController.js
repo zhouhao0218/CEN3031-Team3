@@ -71,6 +71,9 @@ window.addEventListener('load', function() {
 	document.getElementById('acct_btn').addEventListener('click', function() {
 		engine('accounts');
 	});
+	document.getElementById('role_btn').addEventListener('click', function() {
+		engine('roles');
+	});
 	document.getElementById('game_btn').addEventListener('click', function() {
 		engine('games');
 	});
