@@ -33,46 +33,6 @@ exports.create = function (req, res) {
 	});
 };
 
-exports.register_for = function(req, res) {
-	if (! (req.session && req.session.email && req.session.username && req.session.userid)) {
-		res.status(409).end('Please login to register for events');
-		return;
-	}
-	Account.findById(req.session.userid, function(err, acct) {
-		if (err) {
-			console.log(err);
-			res.status(400).end();
-			return;
-		}
-		for (var i = 0; i < acct.my_events.length; ++i) {
-			if (acct.my_events[i].event_id.toString() == req.event._id.toString()) {
-				if (acct.my_events[i].hosting) {
-					res.status(409).end('You cannot register for an event you are hosting');
-				} else {
-					res.status(409).end('Already registered');
-				}
-				return;
-			}
-		}
-		console.log('sssss');
-		acct.update({
-			$push : {
-				my_events : {
-					hosting : false,
-					event_id : req.event._id,
-				}
-			}
-		}, null, function(err, doc) {
-			if (err) {
-				console.log(err);
-				res.status(400).end();
-			} else {
-				res.status(200).end();
-			}
-		});
-	});
-};
-
 /* Show the current event */
 exports.read = function (req, res) {
 	/* send back the event as json from the request */

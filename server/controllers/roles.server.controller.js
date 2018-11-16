@@ -1,20 +1,51 @@
 var mongoose = require('mongoose');
 var Roles = require('../models/roles.server.model.js');
+var Events = require('../models/events.server.model.js');
 
 exports.create = function (req, res) {
 	if (! (req.session && req.session.email && req.session.username && req.session.userid)) {
 		res.status(409).end('Please login to register for events');
 		return;
 	}
-	var role = new Roles(req.body);
-	role.save(function (err) {
+	if (! req.body.event) {
+		res.status(400).end();
+		return;
+	}
+	var evt_id = req.body.event;
+	var user_id = req.session.userid;
+	var role = new Roles({
+		user : user_id,
+		event : evt_id,
+		host : false,
+	});
+	var save_role = function(err) {
 		if (err) {
-			console.log(err);
 			res.status(400).end();
 		} else {
-			res.json(role);
+			res.status(200).end();
 		}
-	});
+	};
+	var already_registered = function(err, record) {
+		if (err) {
+			res.status(400).end();
+		} else if (record.length > 0) {
+			if (record[0].host) {
+				res.status(409).end('You are hosting this event');
+			} else {
+				res.status(409).end('You already registered');
+			}
+		} else {
+			role.save(save_role);
+		}
+	};
+	var find_evt = function(err, evt) {
+		if (err) {
+			res.status(409).end('Event does not exist');
+		} else {
+			Roles.find({ user : user_id, event : evt_id }, already_registered);
+		}
+	};
+	Events.findById(evt_id).exec(find_evt);
 };
 
 exports.read = function (req, res) {

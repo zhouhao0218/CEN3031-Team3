@@ -25,9 +25,10 @@ window.addEventListener('load', function() {
 		};
 		req.send();
 	};
-	var register_for_event = function(_id, on_ok, on_err) {
+	var register_for_event = function(evt_id, on_ok, on_err) {
 		var req = new XMLHttpRequest();
-		req.open('PATCH', '/api/events/' + _id, true);
+		req.open('POST', '/api/roles/', true);
+		req.setRequestHeader('Content-Type', 'application/json');
 		req.onreadystatechange = function() {
 			if (req.readyState != 4)
 				return;
@@ -39,11 +40,13 @@ window.addEventListener('load', function() {
 				on_err('Bad response from server: ' + req.status + ' ' + req.statusText);
 			}
 		};
-		req.send();
+		req.send(JSON.stringify({
+			event : evt_id
+		}));
 	};
 	if (window.location.hash) {
-		var _id = window.location.hash.substr(1);
-		get_event(_id, function(obj) {
+		var evt_id = window.location.hash.substr(1);
+		get_event(evt_id, function(obj) {
 			set_text('f_name', obj.name);
 			var d = new Date(obj.date);
 			set_text('f_date', d.toDateString());
@@ -54,7 +57,7 @@ window.addEventListener('load', function() {
 			set_text('f_name', err);
 		});
 		document.getElementById('register_btn').addEventListener('click', function() {
-			register_for_event(_id, function() {
+			register_for_event(evt_id, function() {
 				set_text('register_btn_container', 'Registered');
 			}, function(err) {
 				set_text('register_btn_container', err);
