@@ -29,22 +29,22 @@ window.addEventListener('load', function() {
 		};
 	};
 	get_events(function(evts) {
+		var which_row = document.getElementById('events_new');
+		var card_template = document.getElementById('template_card');
 		for (var i = 0; i < 3; ++i) {
-			var card = document.getElementById('card' + (i + 1));
-			if (evts[i]) {
-				card.addEventListener('click', make_on_click(evts[i]._id));
-				var evt_name = card.getElementsByTagName('b')[0];
-				var evt_date = card.getElementsByTagName('p')[0];
-				set_text(evt_name, evts[i].name);
-				var d = new Date(evts[i].date);
-				set_text(evt_date, d.toDateString());
-			} else {
-				card.parentNode.removeChild(card);
-			}
+			if (! evts[i])
+				continue;
+			var card = card_template.cloneNode(true);
+			card.style.display = 'block';
+			card.addEventListener('click', make_on_click(evts[i]._id));
+			var evt_name = card.getElementsByTagName('b')[0];
+			var evt_date = card.getElementsByTagName('p')[0];
+			set_text(evt_name, evts[i].name);
+			var d = new Date(evts[i].date);
+			set_text(evt_date, d.toDateString());
+			which_row.appendChild(card);
 		}
 	}, function(err) {
 		console.log(err);
 	});
-	card1.getElementsByTagName('img');
-	
 });
