@@ -1,11 +1,28 @@
 window.addEventListener('load', function() {
+	var send_logout = function() {
+		var req = new XMLHttpRequest();
+		req.open('GET', '/api/me/logout', true);
+		req.onreadystatechange = function() {
+			if (req.readyState != 4)
+				return;
+			if (req.status == 200) {
+				logged_in = false;
+				window.location.reload();
+			}
+		};
+		req.send();
+	};
 	var logged_in = false;
-	var toggle = function() {
+	var toggle = function(e) {
 		var container = document.getElementById('iframe_container');
 		if (container.style.display == 'block') {
 			container.style.display = 'none';
 		} else if (logged_in) {
-			window.location.href = './myAccount.html';
+			if (e.target.href && e.target.href.substr(e.target.href.indexOf('#')) === '#logout') {
+				send_logout();
+			} else {
+				window.location.href = './myAccount.html';
+			}
 		} else {
 			container.style.display = 'block';
 		}
@@ -18,13 +35,16 @@ window.addEventListener('load', function() {
 	});
 	set_click_for('login_link');
 	set_click_for('register_link');
-	var set_text = function(obj_id, str) {
+	var set_text = function(obj_id, str, h) {
 		var obj = document.getElementById(obj_id);
 		while (obj.firstChild) {
 			obj.removeChild(obj.firstChild);
 		}
 		if (str) {
 			obj.appendChild(document.createTextNode(str));
+		}
+		if (h) {
+			obj.href = '#' + h;
 		}
 	};
 	(function() {
@@ -34,7 +54,7 @@ window.addEventListener('load', function() {
 			if (req.readyState != 4)
 				return;
 			if (req.status == 200) {
-				set_text('login_link');
+				set_text('login_link', 'Logout', 'logout');
 				set_text('register_link', req.responseText);
 				logged_in = true;
 			}
