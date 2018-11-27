@@ -44,4 +44,19 @@ router.route('/events').get(function(req, res) {
 	}
 });
 
+router.route('/logout').get(function(req, res) {
+	if (amiloggedin(req)) {
+		req.session.destroy(function(err) {
+			if (err) {
+				res.status(400).end();
+				console.log(err);
+			} else {
+				res.status(200).end();
+			}
+		});
+	} else {
+		res.status(400).end();
+	}
+});
+
 module.exports = router;
