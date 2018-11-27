@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>HostPage</title>
+	<link rel="stylesheet" type="text/css" href="styles/styleshost.css">
+	<link rel="stylesheet" type="text/css" href="styles/modal.css">
+	<script src="js/controllers/eventController.js"></script>
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="container">
+			<div class="logo_div">
+				<a href="index.html">
+					<img src="6.jpg" class="logo" >
+				</a>
+		</div>
+
+		<div class="navbar_link">
+			<ul class="menu">
+				<li><a href="HostPage.html">Host an Event</a></li>
+				<li><a id="login_link" href="#">Login</a></li>
+				<li><a id="register_link" href="#">Sign Up!</a></li>
+			</ul>
+			<h1 class="GamerGator" align="center">GamerGator</hi>
+		</div>
+
+		</div>
+	</div>
+
+	<div class="SearchBar">
+			<form action="./searchPage.html" method="get">
+				<p><input name="q" type="text" placeholder="Search" ></p>
+
+			</form>
+	</div>
+
+	<br>
+
+	<ul id="dropmenu" class="center">
+		<li><a href="#">Shooters</a>
+			<ul class="sub1">
+				<li><a href="searchPage.html">CS:GO</a></li>
+				<li><a href="searchPage.html">Overwatch</a></li>
+				<li><a href="searchPage.html">Tom Clancy’s Rainbow Six Siege</a></li>
+				<li><a href="searchPage.html">PlayerUnknown's Battlegrounds</a></li>
+				<li><a href="searchPage.html">Splatoon 2</a></li>
+				<li><a href="searchPage.html">Call of Duty</a></li>
+				<li><a href="searchPage.html">Battlefield</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Fighting</a>
+			<ul class="sub1">
+				<li><a href="searchPage.html">Project M</a></li>
+				<li><a href="searchPage.html">Rivals of Aether</a></li>
+				<li><a href="searchPage.html">DragonBall FighterZ</a></li>
+				<li><a href="searchPage.html">Tekken 7</a></li>
+				<li><a href="searchPage.html">Street Fighter V</a></li>
+				<li><a href="searchPage.html">Super Smash Bros.</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Moba's</a>
+			<ul class="sub1">
+				<li><a href="searchPage.html">League of Legends</a></li>
+				<li><a href="searchPage.html">Dota 2</a></li>
+				<li><a href="searchPage.html">Heroes of the Storm</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Table Top</a>
+			<ul class="sub1">
+				<li><a href="searchPage.html">Dungeons and Dragons</a></li>
+				<li><a href="searchPage.html">Warhammer 40,000</a></li>
+				<li><a href="searchPage.html">HeroClix</a></li>
+				<li><a href="searchPage.html">Chess</a></li>
+				<li><a href="searchPage.html">Android: Netrunner</a></li>
+				<li><a href="searchPage.html">Magic: The Gathering Commander</a></li>
+				<li><a href="searchPage.html">Melee</a></li>
+			</ul>
+		</li>
+
+		<li><a href="#">Other</a>
+			<ul class="sub1">
+				<li><a href="searchPage.html">Mario Tennis Aces</a></li>
+				<li><a href="searchPage.html">Pokémon Sun and Moon</a></li>
+				<li><a href="searchPage.html">Hearthstone</a></li>
+			</ul>
+		</li>
+	</ul>
+
+    <br> <br> <br> <br> <br>
+
+
+    <div >
+            <div class="form">
+                    <div class="center">
+                        <div class="host">
+                            <h2>Host an Event</h2>
+                        </div>
+                    </div>
+					<div style="color:red; font-size:14pt;" id="form_err"></div>
+                            <div class="simple-form" id= "form-body">
+                                <input id="new_name" type="text" placeholder="Name">
+                                <div class= "inputField">
+                                	<input id="new_date" class= "inputFieldSize" type="Date" placeholder="Date">
+                                	<input id="new_time" class= "inputFieldSize" type="Time" placeholder="Time">
+								</div>
+                                <input id="new_location" type="text" placeholder="Location">
+                                <input id="new_game" type="text" placeholder="Games at Event">
+                                <button type="submit" id="create_evt_btn" form="form-body" value="submit">Create!</button>
+                            </div>
+            </div>
+    </div>
+	<div id="iframe_container">
+		<button id="iframe_container_close_btn">Close</button>
+		<br>
+		<iframe src="registrationPage.html"></iframe>
+		<script src="./js/login_modal.js"></script>
+	</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div>
+		<p><a href="">Contact Us</a></p>
+
+
+		<h5 class="information">For more information about GamerGator or Cloud3 contact us by email at 123@me.com or call us at 555-123-4567</h5>
+
+	</div>
