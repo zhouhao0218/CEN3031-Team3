@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-	var set_text_to = function(obj_id, str) {
+	var set_text = function(obj_id, str) {
 		var obj = document.getElementById(obj_id);
 		while (obj.firstChild) {
 			obj.removeChild(obj.firstChild);
@@ -44,14 +44,27 @@ window.addEventListener('load', function() {
 	};
 	document.getElementById('create_evt_btn').addEventListener('click', function() {
 		try_submit_form(function(evt) {
-			set_text_to('form-body', 'Event created !  ');
+			set_text('form-body', 'Event created !  ');
 			var link = document.createElement('a');
 			link.appendChild(document.createTextNode('(click here to view)'));
 			document.getElementById('form-body').appendChild(link);
 			link.href = '/eventPage.html#' + evt._id;
-			set_text_to('form_err');
+			set_text('form_err');
 		}, function(err) {
-			set_text_to('form_err', err);
+			set_text('form_err', err);
 		});
 	});
+	(function() {
+		var req = new XMLHttpRequest();
+		req.open('GET', '/api/me/username', true);
+		req.setRequestHeader('Content-type', 'application/json');
+		req.onreadystatechange = function() {
+			if (req.readyState != 4)
+				return;
+			if (req.status != 200) {
+				set_text('form-body', 'Please login first to create events !');
+			}
+		};
+		req.send();
+	})();
 });
