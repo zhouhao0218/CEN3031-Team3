@@ -1,6 +1,27 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
+
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+      	margin: auto;
+        height: 50%;
+        width: 50%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+
+
 	<title>Event Page</title>
 	<link rel="stylesheet" type="text/css" href="styles/stylesEventPage.css">
 	<link rel="stylesheet" type="text/css" href="styles/modal.css">
@@ -122,6 +143,51 @@
 <div style="text-align:center" id="register_btn_container">
 	<button type="button" id="register_btn">Register</button>
 </div>
+
+
+<!- google maps start -!>
+
+<div id="map"></div>
+
+    <script>
+
+      function initMap() {
+
+      	var geocoder = new google.maps.Geocoder();
+
+		var address = "the standard gainesville fl"; // change me
+
+		geocoder.geocode( { 'address': address}, function(results, status) {
+
+  			if (status == google.maps.GeocoderStatus.OK) {
+    			var latitude = results[0].geometry.location.lat();
+    			var longitude = results[0].geometry.location.lng();
+
+    			var myLatLng = {lat: latitude, lng: longitude};
+
+        		var map = new google.maps.Map(document.getElementById('map'), {
+         			zoom: 16,
+         			 center: myLatLng
+       			 });
+
+        		var marker = new google.maps.Marker({
+          		position: myLatLng,
+          		map: map,
+         		 title: 'Hello World!'
+        		});
+ 			 } 
+		}); 
+        
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ_sjpGphEOoIIsVofng46xUS5pHR3iuo
+&callback=initMap">
+    </script>
+  </body>
+
+<!- google maps end -!>
+
 
 
 <div id="iframe_container">
