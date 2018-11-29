@@ -148,43 +148,14 @@
 <!- google maps start -!>
 
 <div id="map"></div>
+<script>
+  function initMap() {}
+</script>
 
-    <script>
-
-      function initMap() {
-
-      	var geocoder = new google.maps.Geocoder();
-
-		var address = "the standard gainesville fl"; // change me
-
-		geocoder.geocode( { 'address': address}, function(results, status) {
-
-  			if (status == google.maps.GeocoderStatus.OK) {
-    			var latitude = results[0].geometry.location.lat();
-    			var longitude = results[0].geometry.location.lng();
-
-    			var myLatLng = {lat: latitude, lng: longitude};
-
-        		var map = new google.maps.Map(document.getElementById('map'), {
-         			zoom: 16,
-         			 center: myLatLng
-       			 });
-
-        		var marker = new google.maps.Marker({
-          		position: myLatLng,
-          		map: map,
-         		 title: 'Hello World!'
-        		});
- 			 }
-		});
-
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ_sjpGphEOoIIsVofng46xUS5pHR3iuo
-&callback=initMap">
-    </script>
-  </body>
+<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ_sjpGphEOoIIsVofng46xUS5pHR3iuo&callback=initMap">
+</script>
+</body>
 
 <!- google maps end -!>
 
