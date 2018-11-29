@@ -23,6 +23,9 @@ var eventSchema = new Schema({
 	location: {
 		type: String,
 	},
+	image: {
+		type:String
+	},
 	created_at: Date,
 	updated_at: Date
 });
