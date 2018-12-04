@@ -81,6 +81,7 @@ window.addEventListener('load', function() {
 			set_text('f_time', obj.time);
 			set_text('f_location', obj.location);
 			set_text('f_games', obj.gamesavailable);
+			document.getElementById("f_image").src = obj.image;
 			change_addr(obj.location);
 		}, function(err) {
 			set_text('f_name', err);
