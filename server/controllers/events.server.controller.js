@@ -39,6 +39,15 @@ exports.read = function (req, res) {
 	res.json(req.event);
 };
 
+exports.rolesPerEvent = function(req, res) {
+	Role.find({ event : req.event._id }, function(err, record) {
+		if (err) {
+			res.status(400).end();
+		}
+		res.json(record);
+	});
+};
+
 /* Update a event */
 exports.update = function (req, res) {
 	var event = req.event;
