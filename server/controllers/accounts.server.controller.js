@@ -50,8 +50,11 @@ exports.login = function(req, res) {
 
 /* Show the current listing */
 exports.read = function (req, res) {
-	/* send back the listing as json from the request */
-	res.json(req.account);
+	if (req.account) {
+		res.status(200).end(req.account.username);
+	} else {
+		res.status(400).end();
+	}
 };
 
 /* Update a listing */

@@ -25,6 +25,22 @@ window.addEventListener('load', function() {
 		};
 		req.send();
 	};
+	var get_roles = function(_id, on_ok, on_err) {
+		var req = new XMLHttpRequest();
+		req.open('GET', '/api/events/roles/' + _id, true);
+		req.onreadystatechange = function() {
+			if (req.readyState != 4)
+				return;
+			if (req.status == 200) {
+				on_ok(JSON.parse(req.responseText));
+			} else if (req.status == 409) {
+				on_err(req.responseText);
+			} else {
+				on_err('Bad response from server: ' + req.status + ' ' + req.statusText);
+			}
+		};
+		req.send();
+	};	
 	var register_for_event = function(evt_id, on_ok, on_err) {
 		var req = new XMLHttpRequest();
 		req.open('POST', '/api/roles/', true);
@@ -44,7 +60,18 @@ window.addEventListener('load', function() {
 			event : evt_id
 		}));
 	};
-	
+	var get_name = function(_id, on_ok) {
+		var req = new XMLHttpRequest();
+		req.open('GET', '/api/accounts/' + _id, true);
+		req.onreadystatechange = function() {
+			if (req.readyState != 4)
+				return;
+			if (req.status == 200) {
+				on_ok(req.responseText);
+			}
+		};
+		req.send();
+	};
 	if (window.location.hash) {
 		var evt_id = window.location.hash.substr(1);
 		get_event(evt_id, function(obj) {
@@ -55,6 +82,25 @@ window.addEventListener('load', function() {
 			set_text('f_location', obj.location);
 			set_text('f_games', obj.gamesavailable);
 			change_addr(obj.location);
+		}, function(err) {
+			set_text('f_name', err);
+		});
+		get_roles(evt_id, function(obj) {
+			var who_going = obj.length - 1;
+			var noun = (who_going == 1) ? ' person' : ' people';
+			set_text('f_numgoing', who_going + noun);
+			for (var i = 0; i < obj.length; ++i) {
+				if (obj[i].host) {
+					get_name(obj[i].user, function(name) {
+						set_text('f_host', name);
+					});
+				} else {
+					var el = document.getElementById('f_going');
+					get_name(obj[i].user, function(name) {
+						el.appendChild(document.createTextNode(name + '; '));
+					});
+				}
+			}
 		}, function(err) {
 			set_text('f_name', err);
 		});
