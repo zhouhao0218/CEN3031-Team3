@@ -49,7 +49,7 @@ exports.amihostforevent = function(req, res) {
 			res.status(400).end();
 		}
 		if (record && record.length == 1&& record[0].host) {
-			res.status(200).end();
+			res.status(200).end('yes');
 		}
 	});
 };
