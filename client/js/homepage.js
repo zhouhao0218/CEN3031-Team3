@@ -31,7 +31,7 @@ window.addEventListener('load', function() {
 	get_events(function(evts) {
 		var which_row = document.getElementById('events_new');
 		var card_template = document.getElementById('template_card');
-		for (var i = 0; i < 3; ++i) {
+		for (var i = 0; i < 100; ++i) {
 			if (! evts[i])
 				continue;
 			var card = card_template.cloneNode(true);
