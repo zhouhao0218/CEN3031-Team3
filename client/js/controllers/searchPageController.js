@@ -53,6 +53,8 @@ window.addEventListener('load', function() {
 			})(evts[i]._id));
 			var spans = new_row.getElementsByTagName('span');
 			set_text(spans[0], evts[i].name);
+			new_row.getElementsByTagName('img').src = evts[i].image;
+			//.getElementById('searchImg').src = evts[i].image;
 			var d = new Date(evts[i].date);
 			set_text(spans[1], d.toDateString());
 			set_text(spans[2], evts[i].time);
