@@ -15,6 +15,7 @@ router.route('/').get(events.list).post(events.create);
 router.route('/:eventId').get(events.read).put(events.update).delete(events.delete);
 
 router.route('/roles/:eventId').get(events.rolesPerEvent);
+router.route('/amihost/:eventId').get(events.amihostforevent);
 
 router.param('eventId', events.eventByID);
 module.exports = router;

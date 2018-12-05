@@ -39,6 +39,21 @@ exports.read = function (req, res) {
 	res.json(req.event);
 };
 
+exports.amihostforevent = function(req, res) {
+	if (! (req.session && req.session.email && req.session.username && req.session.userid)) {
+		res.status(400).end();
+		return;
+	}
+	Role.find({ event : req.event._id, user : req.session.userid }, function(err, record) {
+		if (err) {
+			res.status(400).end();
+		}
+		if (record && record.length == 1&& record[0].host) {
+			res.status(200).end();
+		}
+	});
+};
+
 exports.rolesPerEvent = function(req, res) {
 	Role.find({ event : req.event._id }, function(err, record) {
 		if (err) {
@@ -50,37 +65,37 @@ exports.rolesPerEvent = function(req, res) {
 
 /* Update a event */
 exports.update = function (req, res) {
-	var event = req.event;
-	if (req.body.name) {
-		event.name = req.body.name;
-	} else {
-		req.status(400).end();
+	if (! (req.session && req.session.email && req.session.username && req.session.userid)) {
+		res.status(400).end();
+		return;
 	}
-	if (req.body.date) {
-		event.date = req.body.date;
-	} else {
-		req.status(400).end();
-	}
-	if (req.body.time) {
-		event.time = req.body.time;
-	} else {
-		req.status(400).end();
-	}
-	if (req.body.gamesavailable) {
-		event.gamesavailable = req.body.gamesavailable;
-	} else {
-		req.status(400).end();
-	}
-	if (req.body.address) {
-		event.address = req.body.address;
-	} else {
-		req.status(400).end();
-	}
-	event.save(function(err, what) {
-		if (err) {
-			res.status(400).send(err);
+	var attempt_update = function() {
+		if (req.body.name && req.body.date && req.body.time && req.body.gamesavailable && req.body.location && req.body.image) {
+			req.event.name = req.body.name;
+			req.event.date = req.body.date;
+			req.event.time = req.body.time;
+			req.event.gamesavailable = req.body.gamesavailable;
+			req.event.location = req.body.location;
+			req.event.image = req.body.image;
 		} else {
-			res.json(what);
+			res.status(400).end();
+			return;
+		}
+		req.event.save(function(err, what) {
+			if (err) {
+				res.status(400).end();
+			} else {
+				res.json(what);
+			}
+		});
+	};
+	Role.find({ event : req.event._id, user : req.session.userid }, function(err, record) {
+		if (err) {
+			res.status(400).end();
+			return;
+		}
+		if (record && record.length == 1 && record[0].host) {
+			attempt_update();
 		}
 	});
 };
