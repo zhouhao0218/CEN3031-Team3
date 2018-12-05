@@ -39,7 +39,7 @@ window.addEventListener('load', function() {
 			card.addEventListener('click', make_on_click(evts[i]._id));
 			var evt_name = card.getElementsByTagName('b')[0];
 			var evt_date = card.getElementsByTagName('p')[0];
-			document.getElementById("event_image").src = evts[i].image;
+			card.getElementsByTagName('img')[0].src = evts[i].image;
 			set_text(evt_name, evts[i].name);
 			var d = new Date(evts[i].date);
 			set_text(evt_date, d.toDateString());
