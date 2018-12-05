@@ -1,6 +1,5 @@
 window.addEventListener('load', function() {
-	var set_text = function(obj_id, str) {
-		var obj = document.getElementById(obj_id);
+	var set_text_of = function(obj, str) {
 		while (obj.firstChild) {
 			obj.removeChild(obj.firstChild);
 		}
@@ -8,6 +7,10 @@ window.addEventListener('load', function() {
 			var txt = document.createTextNode(str);
 			obj.appendChild(txt);
 		}
+	};
+	var set_text = function(obj_id, str) {
+		var obj = document.getElementById(obj_id);
+		set_text_of(obj, str);
 	};
 	var get_event = function(_id, on_ok, on_err) {
 		var req = new XMLHttpRequest();
@@ -60,6 +63,17 @@ window.addEventListener('load', function() {
 			event : evt_id
 		}));
 	};
+	var save_event = function(_id, o, cb) {
+		var req = new XMLHttpRequest();
+		req.open('PUT', '/api/events/' + _id, true);
+		req.setRequestHeader('Content-type', 'application/json');
+		req.onreadystatechange = function() {
+			if (req.readyState != 4)
+				return;
+			cb();
+		};
+		req.send(JSON.stringify(o));
+	};
 	var get_name = function(_id, on_ok) {
 		var req = new XMLHttpRequest();
 		req.open('GET', '/api/accounts/' + _id, true);
@@ -69,6 +83,28 @@ window.addEventListener('load', function() {
 			if (req.status == 200) {
 				on_ok(req.responseText);
 			}
+		};
+		req.send();
+	};
+	var amihost = function(_id, yes) {
+		var req = new XMLHttpRequest();
+		req.open('GET', '/api/events/amihost/' + _id, true);
+		req.onreadystatechange = function() {
+			if (req.readyState != 4)
+				return;
+			if (req.status == 200) {
+				yes();
+			}
+		};
+		req.send();
+	};
+	var delete_event = function(_id, cb) {
+		var req = new XMLHttpRequest();
+		req.open('DELETE', '/api/events/' + _id, true);
+		req.onreadystatechange = function() {
+			if (req.readyState != 4)
+				return;
+			cb();
 		};
 		req.send();
 	};
@@ -104,6 +140,54 @@ window.addEventListener('load', function() {
 			}
 		}, function(err) {
 			set_text('f_name', err);
+		});
+		amihost(evt_id, function() {
+			document.getElementById('edit_evt_btn').style.display = 'block';
+			document.getElementById('delete_evt_btn').style.display = 'block';
+		});
+		var toggle = false;
+		var my_inputs = [];
+		document.getElementById('edit_evt_btn').addEventListener('click', function() {
+			toggle = ! toggle;
+			var to_edit = ['f_name', 'f_date', 'f_time', 'f_location', 'f_games'];
+			if (toggle) {
+				set_text_of(document.getElementById('edit_evt_btn').getElementsByTagName('a')[0], 'Save Event');
+				for (var objid_i in to_edit) {
+					var objid = to_edit[objid_i];
+					var obj = document.getElementById(objid);
+					var iel = document.createElement('input');
+					iel.type = 'text';
+					iel.style.width = '30%';
+					iel.style.padding = '0';
+					iel.value = obj.innerText;
+					set_text(objid);
+					obj.appendChild(iel);
+					my_inputs.push(iel);
+				}
+			} else {
+				set_text('edit_evt_btn');
+				set_text('delete_evt_btn');
+				var something = {
+					name : my_inputs[0].value,
+					date : my_inputs[1].value,
+					time : my_inputs[2].value,
+					location : my_inputs[3].value,
+					gamesavailable : my_inputs[4].value,
+					image : document.getElementById('f_image').src,
+				};
+				save_event(evt_id, something, function() {
+					window.location.reload();
+				}, function(err) {
+					set_text('register_btn_container', err);
+				});
+			}
+		});
+		document.getElementById('delete_evt_btn').addEventListener('click', function() {
+			if (confirm('Are you sure you want to delete?')) {
+				delete_event(evt_id, function() {
+					window.location.href = '/'; 
+				});
+			}
 		});
 		document.getElementById('register_btn').addEventListener('click', function() {
 			register_for_event(evt_id, function() {

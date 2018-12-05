@@ -18,6 +18,14 @@
         margin: 0;
         padding: 0;
       }
+	  .small_button {
+		  display:none;
+		  width:100px;
+		  float:right;
+		  text-align:center;
+		  background-color:lightGreen;
+		  
+	  }
     </style>
 
 
@@ -132,6 +140,8 @@
 
 
 
+<div id="edit_evt_btn" class="small_button"><a href="javascript:void(0);">Edit Event</a></div>
+<div id="delete_evt_btn" class="small_button"><a href="javascript:void(0);">Delete Event</a></div>
 <center> <h4>Event Details</p> </center>
 
 <p style="text-align:left">Date: <span id="f_date"></span></p>
@@ -151,7 +161,6 @@
 
 <div id="map"></div>
 <script>
-  function initMap()
 </script>
 
 <script async defer
