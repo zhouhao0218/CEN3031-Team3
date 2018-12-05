@@ -8,7 +8,7 @@
 	<script src="./js/homepage.js"></script>
 </head>
 
-<body ng-app>
+<body>
 	<div class="navbar">
 		<div class="container">
 			<div class="logo_div">
@@ -31,10 +31,13 @@
 	</div>
 
 	<div class="SearchBar">
-			<form action="./searchPage.html" method="get">
-				<p><input name="q" type="text" placeholder="Search" ></p>
-
-			</form>
+		<form class="form-inline my-0 my-lg-0">
+				<input aria-label="Search" class= type="text" onkeyup="showResults(this.value)"  placeholder="Search" type="search"/>
+					<div style="position: relative;width: 100%;top:-1px">
+        		<div class="border" id="search-results">
+        	</div>
+      	</div>
+    </form>
 	</div>
 
 	<br>
@@ -168,6 +171,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
+		<script src="js/controllers/searchController.js"></script>
 	<!--
     <script src="js/factories/gameFactory.js"></script>
     <script src="js/controllers/gameController.js"></script>
