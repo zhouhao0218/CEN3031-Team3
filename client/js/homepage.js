@@ -40,15 +40,16 @@ window.addEventListener('load', function() {
 	};
 	var all_cards = [];
 	var find_with_filter = function(filter) {
+		var which_row = document.getElementById('events_new');
 		for (var i = 0; i < all_cards.length; ++i) {
 			var obj = all_cards[i];
 			while (obj.firstChild) {
 				obj.removeChild(obj.firstChild);
 			}
+			which_row.removeChild(obj);
 		}
 		all_cards = [];
 		get_events(function(evts) {
-			var which_row = document.getElementById('events_new');
 			var card_template = document.getElementById('template_card');
 			for (var i = 0; i < 100; ++i) {
 				if (! evts[i])
