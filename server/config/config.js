@@ -9,5 +9,5 @@ module.exports = {
 	db3: {
 		uri: 'mongodb://CENTeam3:CENTeam3@ds141633.mlab.com:41633/account_info',
 	},
-	port : 8080,
+	port : process.env.PORT || 8080,
 };
