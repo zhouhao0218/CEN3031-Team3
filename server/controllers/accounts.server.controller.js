@@ -2,6 +2,14 @@
 var mongoose = require('mongoose');
 var Account = require('../models/accounts.server.model.js');
 
+var not_admin = function(req) {
+	if (req.session && req.session.email && req.session.username && req.session.userid) {
+		return req.session.username != 'admin';
+	} else {
+		return true;
+	}
+};
+
 exports.create = function (req, res) {
 	/* Instantiate a Listing */
 	var account = new Account(req.body);
@@ -80,7 +88,15 @@ exports.update = function (req, res) {
 
 /* Delete a listing */
 exports.delete = function (req, res) {
+	if (not_admin(req)) {
+		res.status(401).end();
+		return;
+	}
 	var account = req.account;
+	if (account.username == 'admin') {
+		res.status(406).end();
+		return;
+	}
 	account.remove(function(err) {
 		if (err) {
 			res.status(400).send(err);
@@ -91,6 +107,10 @@ exports.delete = function (req, res) {
 };
 
 exports.list = function (req, res) {
+	if (not_admin(req)) {
+		res.status(401).end();
+		return;
+	}
 	Account.find({}).exec(function(err, items) {
 		res.json(items);
 	});

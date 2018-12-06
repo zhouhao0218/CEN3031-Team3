@@ -13,6 +13,7 @@ window.addEventListener('load', function() {
 		req.send();
 	};
 	var logged_in = false;
+	var my_username = '';
 	var toggle = function(e) {
 		var container = document.getElementById('iframe_container');
 		if (container.style.display == 'block') {
@@ -20,6 +21,8 @@ window.addEventListener('load', function() {
 		} else if (logged_in) {
 			if (e.target.href && e.target.href.substr(e.target.href.indexOf('#')) === '#logout') {
 				send_logout();
+			} else if (my_username === 'admin') {
+				window.location.href = './admin.html';
 			} else {
 				window.location.href = './myAccount.html';
 			}
@@ -55,7 +58,8 @@ window.addEventListener('load', function() {
 				return;
 			if (req.status == 200) {
 				set_text('login_link', 'Logout', 'logout');
-				set_text('register_link', req.responseText);
+				my_username = req.responseText;
+				set_text('register_link', my_username);
 				logged_in = true;
 			}
 		};
