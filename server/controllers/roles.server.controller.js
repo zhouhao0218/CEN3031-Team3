@@ -32,7 +32,13 @@ exports.create = function (req, res) {
 			if (record[0].host) {
 				res.status(409).end('You are already hosting this event');
 			} else {
-				res.status(409).end('You already registered');
+				record[0].remove(function(err) {
+					if (err) {
+						res.status(400).end();
+					} else {
+						res.status(409).end('You were unregistered for this event');
+					}
+				});
 			}
 		} else {
 			role.save(save_role);
